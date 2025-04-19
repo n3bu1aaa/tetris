@@ -109,13 +109,14 @@ class TitleScreen:
         for action, key in controls.items():
             label = f"{action}: {pygame.key.name(key)}"
             text = smaller_font.render(label, True, (255, 255, 255))
-            self.screen.blit(text, (100, y))
-            y += 30
+            self.screen.blit(text, (200, y)) 
 
             button_rect = pygame.Rect(400, y, 120, 30)
             pygame.draw.rect(self.screen, (80, 80, 80), button_rect)
             btn_text = smaller_font.render("Change", True, (255, 255, 255))
             self.screen.blit(btn_text, (button_rect.x + 10, button_rect.y + 5))
+
+            y += 50
 
             if self.awaiting_key is None and pygame.mouse.get_pressed()[0]:
                 if button_rect.collidepoint(pygame.mouse.get_pos()):
